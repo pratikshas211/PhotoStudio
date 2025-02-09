@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>regester course</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+
+        .header {
+            text-align: center;
+            background-image: url('back.jpg'); /* Replace with actual image URL */
+            background-size: cover;
+            color: white;
+            padding: 40px 0;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input {
+            margin-top: 5px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"] {
+            width: 100%;
+        }
+
+        input[type="text"]::placeholder,
+        input[type="email"]::placeholder,
+        input[type="tel"]::placeholder {
+            color: #999;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button-container a,
+        .button-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .button-container a:hover,
+        .button-container button:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 20px;
+            }
+
+            input {
+                font-size: 14px;
+            }
+
+            .button-container a,
+            .button-container button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .header h1 {
+                font-size: 18px;
+            }
+
+            input {
+                font-size: 12px;
+            }
+
+            .button-container a,
+            .button-container button {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>regester your course</h1>
+        </div>
+        <form>
+            <label for="first-name">First Name *</label>
+            <input type="text" id="first-name" name="first-name" required>
+
+            <label for="last-name">Last Name *</label>
+            <input type="text" id="last-name" name="last-name" required>
+
+            <label for="street-address">Street Address *</label>
+            <input type="text" id="street-address" name="street-address" required>
+
+            <label for="address-line-2">Address Line 2</label>
+            <input type="text" id="address-line-2" name="address-line-2">
+
+            <label for="city">City *</label>
+            <input type="text" id="city" name="city" required>
+
+            <label for="state">State *</label>
+            <input type="text" id="state" name="state" required>
+
+            <label for="zip-code">Zip Code *</label>
+            <input type="text" id="zip-code" name="zip-code" required>
+
+            <label for="phone-number">Phone Number *</label>
+            <input type="tel" id="phone-number" name="phone-number" pattern="\\(\\d{3}\\) \\d{3}-\\d{4}" required placeholder="(___) ___-____">
+
+            <label for="email-address">Email Address *</label>
+            <input type="email" id="email-address" name="email-address" required>
+
+            <div class="button-container">
+                <a href="index.html" class="back-button">Back</a>
+                <button type="submit">Proceed</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

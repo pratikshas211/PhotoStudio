@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <div class="logo">Strangebox films</div>
+            <ul>
+                <li><a href="index.html">portfolio</a></li>
+                <li><a href="service.html">Services</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="rent.html">Rent</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="login.html" class="login-button">Login</a></li>
+            </ul>
+            <div class="profile-icon">
+                <img src="user.png" alt="Profile Icon">
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="sliding-images">
+            <img src="hero.jpg" alt="Image 1">
+            <img src="sq.jpg" alt="Image 2">
+            <img src="image3.jpg" alt="Image 3">
+        </div>
+        <div class="content">
+            <h2>Welcome to Our Website</h2>
+            <p>Discover amazing content and explore our services.</p>
+        </div>
+    </section>
+    
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <div class="container">
+            <h2>Portfolio</h2>
+            <div class="gallery">
+                <img src="wed 2.jpg" alt="Sample Photo 1">
+                <img src="wed 4.jpeg" alt="Sample Photo 2">
+                <img src="baby2.webp" alt="Sample Photo 3">
+                <img src="baby3.jpg" alt="Sample Photo 4">
+                <img src="wed1.jpeg" alt="Sample Photo 5">
+                <img src="wed3.jpg" alt="Sample Photo 6">
+                <img src="fem1.jpeg" alt="Sample Photo 7">
+                <img src="baby1.jpg" alt="Sample Photo 8">
+                <img src="baby2.webp" alt="Sample Photo 9">
+                <img src="wed5.jpg" alt="Sample Photo 10">
+            </div>
+            <!-- Video Thumbnails -->
+            <div class="video-thumbnail" data-video-src="marr1.mp4">
+                <img src="th.jpeg" alt="Video Thumbnail 1">
+                <div class="play-button">
+                    <i class="fas fa-play"></i>
+                </div>
+            </div>
+            <div class="video-thumbnail" data-video-src="mar2.mp4">
+                <img src="marr2.jpeg" alt="Video Thumbnail 2">
+                <div class="play-button">
+                    <i class="fas fa-play"></i>
+                </div>
+            </div>
+            <div class="video-thumbnail" data-video-src="pre1.mp4">
+                <img src="pre1.jpeg" alt="Video Thumbnail 1">
+                <div class="play-button">
+                    <i class="fas fa-play"></i>
+                </div>
+            </div>
+
+            <div id="floatingVideo" class="floating-video">
+                <video id="floatingVideoPlayer" controls>
+                    <source id="videoSource" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2>Strange Box Films</h2>
+                <p>Visualizing Client Vision</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Tab</h3>
+                <ul>
+                    <li><a href="index.html">Portfolio</a></li>
+                    <li><a href="rent.html">Rent</a></li>
+                    <li><a href="courses.html">Course</a></li>
+                    <li><a href="service.html">service</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3>Social Links</h3>
+                <ul>
+                    <li><a href="https://youtube.com"><img src="yt.png" alt="YouTube"> YouTube</a></li>
+                    <li><a href="https://instagram.com"><img src="Insta.webp" alt="Instagram"> Instagram</a></li>
+                    <li><a href="https://whatsapp.com"><img src="whatsapp.png" alt="WhatsApp"> WhatsApp</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact us</h3>
+                <p><strong>T:</strong> +91 7975858804</p>
+                <p><strong>E:</strong> strangeboxfilms2022@gmail.com</p>
+                <p><strong>A:</strong> Strange Box Films</p>
+                <p>Yadadi Mathyadi</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+
+        // Automatic scrolling for the gallery images
+        let scrollPos = 0;
+        const gallery = document.querySelector('.gallery');
+
+        function autoScroll() {
+            scrollPos += 1;
+            gallery.scrollLeft = scrollPos;
+            if (scrollPos >= gallery.scrollWidth - gallery.clientWidth) {
+                scrollPos = 0;
+            }
+        }
+
+        setInterval(autoScroll, 20); // Adjust scroll speed as needed
+
+        // Handle video thumbnail click
+        const videoThumbnails = document.querySelectorAll('.video-thumbnail');
+        const floatingVideo = document.getElementById('floatingVideo');
+        const floatingVideoPlayer = document.getElementById('floatingVideoPlayer');
+        const videoSource = document.getElementById('videoSource');
+
+        videoThumbnails.forEach(thumbnail => {
+            thumbnail.addEventListener('click', () => {
+                const videoSrc = thumbnail.getAttribute('data-video-src');
+                videoSource.src = videoSrc;
+                floatingVideo.style.display = 'block';
+                floatingVideoPlayer.load();
+                floatingVideoPlayer.play();
+            });
+        });
+
+        // Close floating video when clicking outside
+        floatingVideo.addEventListener('click', (e) => {
+            if (e.target === floatingVideo) {
+                floatingVideo.style.display = 'none';
+                floatingVideoPlayer.pause();
+                floatingVideoPlayer.currentTime = 0;
+            }
+        });
+    </script>
+</body>
+</html>
